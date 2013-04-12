@@ -1,3 +1,6 @@
 /boost_*/
 /boost_*.7z
 /stack_spec
+/stack_spec_catch
+/catch.hpp
+
