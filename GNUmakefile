@@ -3,8 +3,8 @@ all: \
 	run-stack-spec
 
 run-stack-spec-rspec:
-	bundle install
-	bundle exec rspec --format doc --color stack_spec.rb
+#	bundle install
+#	bundle exec rspec --format doc --color stack_spec.rb
 
 run-stack-spec: stack_spec
 	./stack_spec --log_level=test_suite
