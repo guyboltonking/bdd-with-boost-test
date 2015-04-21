@@ -4,6 +4,8 @@
 
 #include "detail/given-when-then.hpp"
 
+#define SCENARIO_(x) GWT_PREFIXED_FIXTURE_TEST_SUITE(SCENARIO_, x, before_each)
+
 #define GIVEN_(x) GWT_PREFIXED_FIXTURE_TEST_SUITE(given_, x, before_each)
 #define WHEN_(x) GWT_PREFIXED_FIXTURE_TEST_SUITE(when_, x, before_each)
 
