@@ -7,6 +7,8 @@
 #include <boost/test/utils/basic_cstring/basic_cstring.hpp>
 #include <boost/test/utils/basic_cstring/io.hpp>
 
+#include <boost/noncopyable.hpp>
+
 #include <boost/algorithm/string.hpp>
 
 namespace boost_test_extensions {
@@ -67,7 +69,7 @@ public:
    }
 
    friend class ScopedIndent;
-   class ScopedIndent: NONCOPYABLE {
+  class ScopedIndent: boost::noncopyable {
    public:
       ScopedIndent() { SpecLogFormatter::GetFormatter()->Indent(); }
       ~ScopedIndent() { SpecLogFormatter::GetFormatter()->Dedent(); }
@@ -155,4 +157,4 @@ private:
 
 };
 
-}}}}
+}

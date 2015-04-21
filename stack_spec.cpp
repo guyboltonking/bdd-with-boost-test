@@ -8,7 +8,7 @@
 
 bool init_unit_test()
 {
-  SpecLogFormatter::Register();
+  boost_test_extensions::SpecLogFormatter::Register();
   return true;
 }
 
