@@ -4,3 +4,5 @@
 /stack_spec_catch
 /catch.hpp
 
+*.exe
+*.obj
