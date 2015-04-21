@@ -2,35 +2,35 @@ describe "a stack" do
   let(:stack) { [] }
 
   context "when initialised" do
-    it "should be empty" do
-      stack.should be_empty
+    it "is empty" do
+      expect(stack).to be_empty
     end
   end
 
   describe "pop" do
     context "on an empty stack" do
       before(:each) {
-        stack.should be_empty
+        expect(stack).to be_empty
       }
 
-      it "should have no effect" do
+      it "has no effect" do
         stack.pop
-        stack.should be_empty
+        expect(stack).to be_empty
       end
     end
 
     context "on a stack with a single member" do
       before(:each) { 
-        stack.push(1) 
-        stack.size.should be(1)
+        stack.push(1)
+        expect(stack.size).to be(1)
       }
 
-      it "should result in an empty stack" do
+      it "results in an empty stack" do
         stack.pop
-        stack.should be_empty
+        expect(stack).to be_empty
       end
 
-      it "should reduce the stack size by one" do
+      it "reduces the stack size by one" do
         expect { stack.pop }.to change { stack.size }.by(-1)
       end
     end
