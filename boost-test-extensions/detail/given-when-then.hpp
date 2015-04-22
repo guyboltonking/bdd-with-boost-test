@@ -15,9 +15,9 @@
 #define GWT_PREFIXED_FIXTURE_TEST_CASE(prefix, test, fixture) \
    BOOST_FIXTURE_TEST_CASE(prefix ## test, fixture)
 
-#define END_ BOOST_AUTO_TEST_SUITE_END()
+#define End_ BOOST_AUTO_TEST_SUITE_END()
 
-#define BEFORE_EACH_(x) struct before_each: outer_before_each { \
+#define Before_each_(x) struct before_each: outer_before_each { \
    before_each() { x; } \
 };
 

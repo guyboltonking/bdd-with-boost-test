@@ -78,50 +78,50 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(Specs_boost_test_example)
 
-  DESCRIBE_(Stack)
+  Describe_(A_Stack)
     struct before_each {
       Stack<int> stack;
     };
 
-    CONTEXT_(after_initialization)
-      IT_(is_empty)
+    Context_(after_initialization)
+      It_(is_empty)
       {
         BOOST_CHECK(stack.empty());
       }
-    END_
+    End_
   
-    DESCRIBE_(pop)
+    Describe_(pop)
 
-      CONTEXT_(on_an_empty_stack)
-        BEFORE_EACH_(
+      Context_(on_an_empty_stack)
+        Before_each_(
           BOOST_REQUIRE(stack.empty())
         )
-        IT_(has_no_effect)
+        It_(has_no_effect)
         {
           stack.pop();
           BOOST_CHECK(stack.empty());
         }
-      END_
+      End_
 
-      CONTEXT_(on_a_stack_with_a_single_member)
-        BEFORE_EACH_(
+      Context_(on_a_stack_with_a_single_member)
+        Before_each_(
           stack.push(1);
           BOOST_REQUIRE_EQUAL(stack.size(), 1);
         )
-        IT_(gives_an_empty_stack)
+        It_(results_in_an_empty_stack)
         {
           stack.pop();
           BOOST_CHECK(stack.empty());
         }
-        IT_(reduces_the_stack_size_by_1)
+        It_(reduces_the_stack_size_by_1)
         {
           std::size_t orig_size = stack.size();
           stack.pop();
           BOOST_CHECK_EQUAL(stack.size(), orig_size - 1);
         }
-      END_
-    END_
-  END_
+      End_
+    End_
+  End_
 
 BOOST_AUTO_TEST_SUITE_END()
 
@@ -135,46 +135,46 @@ BOOST_AUTO_TEST_SUITE(BDD_boost_test_example)
     Stack<int> stack;
   };
 
-  SCENARIO_(popping_an_empty_stack)
+  Scenario_(popping_an_empty_stack)
 
-    GIVEN_(an_empty_stack)
-      BEFORE_EACH_(BOOST_REQUIRE(stack.empty()))
+    Given_(an_empty_stack)
+      Before_each_(BOOST_REQUIRE(stack.empty()))
 
-      WHEN_(the_stack_is_popped)
-        BEFORE_EACH_(stack.pop())
-        THEN_(the_stack_remains_empty)
+      When_(the_stack_is_popped)
+        Before_each_(stack.pop())
+        Then_(the_stack_remains_empty)
         {
           BOOST_CHECK(stack.empty());
         }
-      END_
-    END_
+      End_
+    End_
 
-  END_
+  End_
 
-  SCENARIO_(popping_a_non_empty_stack)
+  Scenario_(popping_a_non_empty_stack)
 
-    GIVEN_(a_stack_with_one_member)
-      BEFORE_EACH_(stack.push(1))
+    Given_(a_stack_with_one_member)
+      Before_each_(stack.push(1))
       
-      WHEN_(the_stack_is_popped)
+      When_(the_stack_is_popped)
         struct before_each: outer_before_each {
           std::size_t size_before_pop;
           before_each(): size_before_pop(stack.size()) {
             stack.pop();
           }
         };
-        THEN_(the_stack_becomes_empty)
+        Then_(the_stack_becomes_empty)
         {
           BOOST_CHECK(stack.empty());
         }
-        AND_(the_stack_size_is_reduced_by_1)
+        And_(the_stack_size_is_reduced_by_1)
         {
           BOOST_CHECK_EQUAL(stack.size(), size_before_pop - 1);
         }
-      END_
-    END_
+      End_
+    End_
 
-  END_
+  End_
 
 
 BOOST_AUTO_TEST_SUITE_END()
