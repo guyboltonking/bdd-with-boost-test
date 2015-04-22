@@ -6,8 +6,8 @@
 // Shared helpers
 
 #define GWT_FIXTURE_TEST_SUITE(test, fixture) \
-   BOOST_FIXTURE_TEST_SUITE(test, fixture); \
-   typedef fixture parent_fixture; typedef fixture outer_ ## fixture;
+   BOOST_AUTO_TEST_SUITE(test); \
+   typedef fixture outer_ ## fixture;
 
 #define GWT_PREFIXED_FIXTURE_TEST_SUITE(prefix, test, fixture) \
    GWT_FIXTURE_TEST_SUITE(prefix ## test, fixture)
