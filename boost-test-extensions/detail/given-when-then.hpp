@@ -5,15 +5,18 @@
 //=============================================================================
 // Shared helpers
 
-#define GWT_FIXTURE_TEST_SUITE(test, fixture) \
-   BOOST_AUTO_TEST_SUITE(test); \
-   typedef fixture outer_ ## fixture;
+#define GWT_TEST_SUITE(test) \
+  BOOST_AUTO_TEST_SUITE(test); \
+  typedef before_each outer_before_each;
 
-#define GWT_PREFIXED_FIXTURE_TEST_SUITE(prefix, test, fixture) \
-   GWT_FIXTURE_TEST_SUITE(prefix ## test, fixture)
+#define GWT_PREFIXED_TEST_SUITE(prefix, test) \
+  GWT_TEST_SUITE(prefix ## test)
 
-#define GWT_PREFIXED_FIXTURE_TEST_CASE(prefix, test, fixture) \
-   BOOST_FIXTURE_TEST_CASE(prefix ## test, fixture)
+#define GWT_TEST_CASE(test) \
+  BOOST_FIXTURE_TEST_CASE(test, before_each)
+
+#define GWT_PREFIXED_TEST_CASE(prefix, test) \
+  GWT_TEST_CASE(prefix ## test)
 
 #define End_ BOOST_AUTO_TEST_SUITE_END()
 
