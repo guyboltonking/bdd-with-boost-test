@@ -15,7 +15,7 @@ bool init_unit_test()
 
 //-----------------------------------------------------------------------------
 
-BOOST_AUTO_TEST_SUITE(raw_boost_test_example)
+BOOST_AUTO_TEST_SUITE(Raw_boost_test_example)
 
 struct a_stack_ {
   Stack<int> stack;
@@ -76,7 +76,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 #include "boost-test-extensions/specs.hpp"
 
-BOOST_AUTO_TEST_SUITE(specs_boost_test_example)
+BOOST_AUTO_TEST_SUITE(Specs_boost_test_example)
 
   DESCRIBE_(Stack)
     struct before_each {
@@ -129,7 +129,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 #include "boost-test-extensions/given-when-then.hpp"
 
-BOOST_AUTO_TEST_SUITE(bdd_boost_test_example)
+BOOST_AUTO_TEST_SUITE(BDD_boost_test_example)
 
   struct before_each {
     Stack<int> stack;
